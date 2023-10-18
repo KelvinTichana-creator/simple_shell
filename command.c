@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include "shell.h"
+#include <unistd.h>
 
 /**
  * execute_command - Execute a command with arguments.
@@ -122,4 +123,21 @@ void handle_exit(const char *command)
 		}
 		exit(exit_status);
 	}
+}
+/**
+ * print_environment - prints env
+ * Return: nthing
+ */
+void print_environment(void)
+{
+    size_t len;
+    char **env = environ;
+    
+    while (*env)
+    {
+        len = strlen(*env);
+        write(STDOUT_FILENO, *env, len);
+        write(STDOUT_FILENO, "\n", 1);
+        env++;
+    }
 }
