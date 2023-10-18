@@ -6,7 +6,7 @@
 
 #define BUFFER_SIZE 1024
 extern char **environ;
-
+ssize_t custom_getline(char **buffer);
 void display_prompt(void);
 int execute_command(const char *command);
 void handle_exit(const char *command);

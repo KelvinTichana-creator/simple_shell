@@ -130,14 +130,14 @@ void handle_exit(const char *command)
  */
 void print_environment(void)
 {
-    size_t len;
-    char **env = environ;
-    
-    while (*env)
-    {
-        len = strlen(*env);
-        write(STDOUT_FILENO, *env, len);
-        write(STDOUT_FILENO, "\n", 1);
-        env++;
-    }
+	size_t len;
+	char **env = environ;
+
+	while (*env)
+	{
+		len = strlen(*env);
+		write(STDOUT_FILENO, *env, len);
+		write(STDOUT_FILENO, "\n", 1);
+		env++;
+	}
 }
